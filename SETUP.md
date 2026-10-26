@@ -1,5 +1,11 @@
 # LeadFlow — запуск для команды (всё бесплатно)
 
+**Сайт:** https://abylakhan.github.io/LeadFlow/  
+**Вход для команды:** https://abylakhan.github.io/LeadFlow/index.html  
+**Регистрация сотрудников:** https://abylakhan.github.io/LeadFlow/index.html#register  
+**Цены для клиентов:** https://abylakhan.github.io/LeadFlow/services.html  
+**Облако:** Supabase, организация «Nurbolat CRM», проект `leadflow`.
+
 ## Как устроен доступ
 - **Главный аккаунт** — `abylakhannurbolat06@icloud.com`. Он единственный администратор: подтверждает сотрудников, меняет цены, контакты и настройки ИИ. Задаётся в `data/config.js` и `supabase.sql`.
 - **Сотрудники** сами регистрируются по email на странице входа (вкладка «Регистрация»). Войти они смогут только после того, как администратор подтвердит заявку в Админке → «Команда».
