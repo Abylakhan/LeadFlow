@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://*.supabase.co wss://*.supabase.co https://nominatim.openstreetmap.org https://overpass-api.de https://overpass.kumi.systems https://maps.mail.ru https://generativelanguage.googleapis.com https://api.groq.com https://openrouter.ai https://api.cerebras.ai; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Рассылка — LeadFlow</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css?v=26">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js" integrity="sha384-GFr3yTh5lJznCbZfpTtXnwboFsxqtTQoeTZCRHhE0579KrRmlCzen5AA8ohaB5ug" crossorigin="anonymous"></script>
+<script src="data/config.js?v=26"></script>
+<script src="data/site.js?v=26"></script>
+<script src="assets/core.js?v=26"></script>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%231e6b50'/><text x='16' y='21' font-size='13' font-family='Arial' font-weight='700' fill='white' text-anchor='middle'>LF</text></svg>">
+</head>
+<body data-auth="member" data-page="outreach">
+<main class="wrap page">
+  <div class="page-head"><div><h1>Рассылка</h1><p class="muted">Выберите, кому писать, — система по очереди откроет чат с готовым персональным текстом. Отправляете вы сами, со своего WhatsApp или почты: так не заблокируют за спам.</p></div></div>
+  <div id="setup" class="layout-2">
+    <section class="card stack">
+      <h3 style="margin:0">1. Кому пишем</h3>
+      <label>Список<select id="filter">
+        <option value="new">Новые — ещё не писали</option>
+        <option value="due">Пора напомнить</option>
+        <option value="contacted">Написали, ждём ответа</option>
+        <option value="replied">Ответили</option>
+        <option value="all">Все</option>
+      </select></label>
+      <label>Канал<select id="channel"><option value="whatsapp">WhatsApp</option><option value="email">Email</option><option value="telegram">Telegram</option></select></label>
+      <label>Язык сообщений<select id="lang"><option value="auto">Авто — по стране компании</option><option value="ru">Русский</option><option value="kk">Қазақша</option><option value="uz">Oʻzbekcha</option><option value="ky">Кыргызча</option></select></label>
+      <label class="check"><input type="checkbox" id="pickAll" checked> Выбрать всех с контактом</label>
+      <label class="check"><input type="checkbox" id="showOthers"> Показывать лидов, которых ведут коллеги</label>
+      <div id="pickList" class="pick-list"></div>
+    </section>
+    <section class="card stack">
+      <h3 style="margin:0">2. Что пишем</h3>
+      <label class="check"><input type="radio" name="mode" value="ai" checked> ИИ пишет персонально каждому <span class="badge ok">рекомендуется</span></label>
+      <label class="check"><input type="radio" name="mode" value="tpl"> По шаблону</label>
+      <div id="tplBox" class="stack" hidden>
+        <label>Шаблон<select id="tplSel"></select></label>
+        <label>Текст<textarea id="tplText" rows="7"></textarea></label>
+        <div class="small muted vars">Переменные (нажмите, чтобы вставить): <code>{{name}}</code> <code>{{city}}</code> <code>{{category}}</code> <code>{{my_name}}</code> <code>{{company}}</code> <code>{{offer}}</code></div>
+        <div class="row gap"><button class="btn" id="tplSave">Сохранить шаблон</button><button class="btn" id="tplNew">Новый шаблон</button></div>
+      </div>
+      <div id="aiBox" class="small muted">ИИ учтёт нишу, город, наличие сайта и ваши заметки. Если для лида уже есть черновик от агента — возьмём его. Если ИИ не ответит, подставится аккуратный шаблон.</div>
+      <hr>
+      <div class="row gap wrap-row"><button class="btn primary big" id="start">Начать</button><span class="muted small" id="startInfo"></span></div>
+    </section>
+  </div>
+  <section id="runner" class="card stack" hidden></section>
+</main>
+</body>
+</html>

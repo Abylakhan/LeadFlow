@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://*.supabase.co wss://*.supabase.co https://nominatim.openstreetmap.org https://overpass-api.de https://overpass.kumi.systems https://maps.mail.ru https://generativelanguage.googleapis.com https://api.groq.com https://openrouter.ai https://api.cerebras.ai; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Рейтинг — LeadFlow</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css?v=26">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js" integrity="sha384-GFr3yTh5lJznCbZfpTtXnwboFsxqtTQoeTZCRHhE0579KrRmlCzen5AA8ohaB5ug" crossorigin="anonymous"></script>
+<script src="data/config.js?v=26"></script>
+<script src="data/site.js?v=26"></script>
+<script src="assets/core.js?v=26"></script>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%231e6b50'/><text x='16' y='21' font-size='13' font-family='Arial' font-weight='700' fill='white' text-anchor='middle'>LF</text></svg>">
+</head>
+<body data-auth="member" data-page="rating">
+<main class="wrap page">
+  <div class="page-head"><div><h1>Рейтинг и отчёты</h1><p class="muted">Соревнование за премию месяца и еженедельные отчёты в Excel.</p></div>
+    <div class="seg" id="rtabs" role="tablist"><button data-t="contest" class="on">Соревнование</button><button data-t="reports">Отчёты</button></div></div>
+  <section id="contest">
+    <div class="month-nav"><button class="icon-btn" id="mPrev" aria-label="Предыдущий месяц">‹</button><h2 id="mTitle"></h2><button class="icon-btn" id="mNext" aria-label="Следующий месяц">›</button><span class="badge" id="mLeft"></span></div>
+    <div class="prizes" id="prizes"></div>
+    <div class="podium" id="podium"></div>
+    <div class="table-wrap" style="margin-top:20px"><table><thead><tr><th>#</th><th>Сотрудник</th><th>Очки</th><th>Касаний</th><th>Ответили</th><th>Встреч</th><th>Клиентов</th><th>Оплачено</th></tr></thead><tbody id="board"></tbody></table></div>
+    <div class="home-grid" style="margin-top:20px">
+      <section class="card stack"><h3 style="margin:0">Как начисляются очки</h3><ul class="rules" id="rules"></ul></section>
+      <section class="card stack" id="adminBox" hidden></section>
+    </div>
+  </section>
+  <section id="reports" hidden>
+    <div class="card stack">
+      <div class="row gap wrap-row" style="justify-content:space-between"><div><h3 style="margin:0">Еженедельный отчёт</h3><p class="small muted" style="margin:0" id="repHint"></p></div>
+        <label>Неделя<select id="week" style="width:auto"></select></label></div>
+      <div id="repPreview"></div>
+      <div class="row gap wrap-row" id="repBtns"></div>
+    </div>
+  </section>
+</main>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://*.supabase.co wss://*.supabase.co https://nominatim.openstreetmap.org https://overpass-api.de https://overpass.kumi.systems https://maps.mail.ru https://generativelanguage.googleapis.com https://api.groq.com https://openrouter.ai https://api.cerebras.ai; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ИИ-агент — LeadFlow</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css?v=26">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js" integrity="sha384-GFr3yTh5lJznCbZfpTtXnwboFsxqtTQoeTZCRHhE0579KrRmlCzen5AA8ohaB5ug" crossorigin="anonymous"></script>
+<script src="data/config.js?v=26"></script>
+<script src="data/site.js?v=26"></script>
+<script src="assets/core.js?v=26"></script>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%231e6b50'/><text x='16' y='21' font-size='13' font-family='Arial' font-weight='700' fill='white' text-anchor='middle'>LF</text></svg>">
+</head>
+<body data-auth="member" data-page="agent">
+<main class="wrap page agent-page">
+  <div class="agent">
+    <div class="chat" id="chat" aria-live="polite"></div>
+    <div class="chips" id="chips"></div>
+    <form id="chatForm" class="composer">
+      <textarea id="msg" rows="1" placeholder="Например: найди 30 стоматологий в Астане" aria-label="Сообщение агенту"></textarea>
+      <button class="btn primary" id="sendBtn">Отправить</button>
+    </form>
+  </div>
+  <aside class="card stack">
+    <div><h3>ИИ-агент по продажам</h3><p class="small muted" style="margin:0">Работает прямо в CRM: ищет компании, пишет черновики, меняет статусы и подсказывает, что делать дальше.</p></div>
+    <div class="small"><b>ИИ:</b> Gemini / Groq с автоматической сменой ключей<br><span class="muted">Ключи добавляет администратор</span></div>
+    <div class="small"><b>Умеет:</b>
+      <ul style="margin:6px 0 0;padding-left:18px" class="muted">
+        <li>найти лидов по нише и городу</li>
+        <li>написать персональные черновики</li>
+        <li>поменять статус, добавить заметку</li>
+        <li>составить план на день</li>
+        <li>помочь ответить на возражение</li>
+      </ul></div>
+    <button class="btn" id="clear">Очистить чат</button>
+  </aside>
+</main>
+</body>
+</html>

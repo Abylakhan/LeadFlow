@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://*.supabase.co wss://*.supabase.co https://nominatim.openstreetmap.org https://overpass-api.de https://overpass.kumi.systems https://maps.mail.ru https://generativelanguage.googleapis.com https://api.groq.com https://openrouter.ai https://api.cerebras.ai; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Цены и примеры работ</title>
+<meta name="description" content="Сайты, CRM, Telegram-боты, продвижение и ИИ-видео для бизнеса в Казахстане. Цены и примеры работ.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css?v=26">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js" integrity="sha384-GFr3yTh5lJznCbZfpTtXnwboFsxqtTQoeTZCRHhE0579KrRmlCzen5AA8ohaB5ug" crossorigin="anonymous"></script>
+<script src="data/config.js?v=26"></script>
+<script src="data/site.js?v=26"></script>
+<script src="assets/core.js?v=26"></script>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%231e6b50'/><text x='16' y='21' font-size='13' font-family='Arial' font-weight='700' fill='white' text-anchor='middle'>LF</text></svg>">
+</head>
+<body data-auth="public" data-page="services">
+<main class="wrap page svc">
+  <section class="s-hero">
+    <div class="s-hero-text">
+      <span class="eyebrow" id="area"></span>
+      <h1 id="title" class="words"></h1>
+      <p class="lead" id="tagline"></p>
+      <div class="cta" id="heroCta"></div>
+      <ul class="s-facts" id="facts"></ul>
+    </div>
+    <div class="s-browser" aria-hidden="true">
+      <div class="sb-bar"><i></i><i></i><i></i><span id="sbUrl">vash-biznes.kz</span></div>
+      <div class="sb-body">
+        <div class="b" style="--i:0"><b class="sb-h"></b><b class="sb-h short"></b></div>
+        <div class="b sb-row" style="--i:1"><span></span><span></span><span></span></div>
+        <div class="b sb-btn" style="--i:2">Записаться</div>
+        <div class="b sb-row" style="--i:3"><span></span><span></span></div>
+      </div>
+      <div class="sb-toast"><span class="sb-dot"></span><div><b>Новая заявка с сайта</b><br><span id="sbToast">Айгерим: консультация, завтра в 15:00</span></div></div>
+    </div>
+  </section>
+
+  <section class="section" id="prices">
+    <h2 class="words" data-text="Цены и калькулятор"></h2>
+    <p class="muted" id="priceNote"></p>
+    <div class="calc">
+      <div class="calc-main">
+        <fieldset class="rows-set"><legend>Что делаем</legend><div class="rows" id="packs"></div></fieldset>
+        <fieldset class="rows-set"><legend>Дополнительно</legend><div class="rows" id="addons"></div></fieldset>
+        <label class="niche">Ваш бизнес <span class="small muted">(необязательно — для точного расчёта)</span><select id="niche"><option value="">Не указывать</option></select></label>
+      </div>
+      <aside class="gets card" id="gets" aria-live="polite"></aside>
+    </div>
+    <div class="sumbar" id="sumbar">
+      <div class="sum-info"><span class="small muted" id="sumWhat"></span><b class="sum-total" id="sumTotal"></b><span class="small muted" id="sumMeta"></span></div>
+      <a class="btn primary big shine" id="sumSend" target="_blank" rel="noopener">Отправить расчёт в WhatsApp</a>
+    </div>
+  </section>
+
+  <section class="section" id="promo"><h2 class="words" data-text="Продвижение и ИИ-видео"></h2><div class="price-grid" id="promoList"></div></section>
+  <section class="section" id="portfolio"><h2 class="words" data-text="Примеры работ"></h2><p class="muted">Демонстрации для разных ниш — откройте и посмотрите, как может выглядеть ваш сайт.</p><div class="price-grid" id="demos"></div></section>
+
+  <section class="section" id="pay">
+    <h2 class="words" data-text="Как оплатить"></h2>
+    <ol class="pay-steps" id="paySteps"></ol>
+    <div class="row gap wrap-row" style="justify-content:space-between;margin:18px 0 12px"><p class="muted" id="payNote" style="margin:0;max-width:640px"></p><div class="seg" id="payCountry"></div></div>
+    <div class="pay-grid" id="payList"></div>
+  </section>
+
+  <section class="section" id="contact"><h2 class="words" data-text="Контакты"></h2><p class="muted" id="about"></p><div class="contact-grid" id="contacts"></div></section>
+</main>
+</body>
+</html>

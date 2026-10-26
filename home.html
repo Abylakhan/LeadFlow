@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://*.supabase.co wss://*.supabase.co https://nominatim.openstreetmap.org https://overpass-api.de https://overpass.kumi.systems https://maps.mail.ru https://generativelanguage.googleapis.com https://api.groq.com https://openrouter.ai https://api.cerebras.ai; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Сегодня — LeadFlow</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css?v=26">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js" integrity="sha384-GFr3yTh5lJznCbZfpTtXnwboFsxqtTQoeTZCRHhE0579KrRmlCzen5AA8ohaB5ug" crossorigin="anonymous"></script>
+<script src="data/config.js?v=26"></script>
+<script src="data/site.js?v=26"></script>
+<script src="assets/core.js?v=26"></script>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%231e6b50'/><text x='16' y='21' font-size='13' font-family='Arial' font-weight='700' fill='white' text-anchor='middle'>LF</text></svg>">
+</head>
+<body data-auth="member" data-page="home">
+<main class="wrap page">
+  <div class="page-head"><div><h1 id="hello">Сегодня</h1><p class="muted" id="sub"></p></div>
+    <div class="row gap wrap-row"><a class="btn" href="leads.html">Найти лидов</a><a class="btn primary" href="outreach.html">Начать рассылку</a></div></div>
+  <div class="kpis" id="kpis"></div>
+  <div class="home-grid" style="margin-top:20px">
+    <section class="card stack"><h3 style="margin:0">Что сделать сейчас</h3><ul class="todo" id="todo"></ul></section>
+    <section class="card stack"><h3 style="margin:0">Воронка команды</h3><div class="funnel" id="funnel"></div><p class="small muted" style="margin:0" id="conv"></p></section>
+  </div>
+  <section class="card stack" style="margin-top:20px">
+    <div class="row gap wrap-row" style="justify-content:space-between"><h3 style="margin:0">Команда</h3>
+      <div class="seg" id="period"><button data-d="1" class="on">Сегодня</button><button data-d="7">7 дней</button><button data-d="30">30 дней</button></div></div>
+    <div class="table-wrap"><table><thead><tr><th>Сотрудник</th><th>Сообщений</th><th>Звонков</th><th>Ответили</th><th>Встреч</th><th>Клиентов</th><th>Сумма сделок</th><th>Ведёт лидов</th></tr></thead><tbody id="team"></tbody></table></div>
+    <p class="small muted" style="margin:0">Считается по истории касаний: кто отправил сообщение, позвонил или перевёл лида на следующий этап.</p>
+  </section>
+</main>
+</body>
+</html>

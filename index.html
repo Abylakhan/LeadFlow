@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://*.supabase.co wss://*.supabase.co https://nominatim.openstreetmap.org https://overpass-api.de https://overpass.kumi.systems https://maps.mail.ru https://generativelanguage.googleapis.com https://api.groq.com https://openrouter.ai https://api.cerebras.ai; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Вход — LeadFlow</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css?v=26">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js" integrity="sha384-GFr3yTh5lJznCbZfpTtXnwboFsxqtTQoeTZCRHhE0579KrRmlCzen5AA8ohaB5ug" crossorigin="anonymous"></script>
+<script src="data/config.js?v=26"></script>
+<script src="data/site.js?v=26"></script>
+<script src="assets/core.js?v=26"></script>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%231e6b50'/><text x='16' y='21' font-size='13' font-family='Arial' font-weight='700' fill='white' text-anchor='middle'>LF</text></svg>">
+</head>
+<body data-auth="guest" data-page="login">
+<main class="auth-wrap">
+  <div class="auth-card">
+    <a class="brand" href="services.html"><span class="logo">LF</span>LeadFlow</a>
+    <div class="card stack auth-box">
+      <div class="seg auth-tabs" role="tablist">
+        <button type="button" role="tab" id="tabLogin" aria-selected="true" class="on">Вход</button>
+        <button type="button" role="tab" id="tabReg" aria-selected="false">Регистрация</button>
+      </div>
+      <form id="loginForm" class="stack" novalidate>
+        <div><h1 class="auth-h">С возвращением</h1><p class="muted small" style="margin:0">Войдите, чтобы продолжить работу с клиентами.</p></div>
+        <label>Email<input id="lEmail" type="email" autocomplete="email" autocapitalize="none" spellcheck="false" required></label>
+        <label>Пароль<span class="pw"><input id="lPass" type="password" autocomplete="current-password" required><button type="button" class="pw-eye" aria-label="Показать пароль">👁</button></span></label>
+        <button class="btn primary big" id="loginBtn">Войти</button>
+        <p class="form-err" id="loginErr" role="alert"></p>
+        <p class="small muted" style="margin:0">Забыли пароль? Напишите администратору — он задаст новый.</p>
+      </form>
+      <form id="regForm" class="stack" novalidate hidden>
+        <div><h1 class="auth-h">Регистрация сотрудника</h1><p class="muted small" style="margin:0">После регистрации администратор подтвердит доступ. В команде до 10 человек.</p></div>
+        <label>Имя и фамилия<input id="rName" required autocomplete="name" maxlength="60" placeholder="Айдос Серикбаев"></label>
+        <label>Email<input id="rEmail" type="email" required autocomplete="email" autocapitalize="none" spellcheck="false" placeholder="you@gmail.com"></label>
+        <label>Пароль<span class="pw"><input id="rPass" type="password" required minlength="8" autocomplete="new-password"><button type="button" class="pw-eye" aria-label="Показать пароль">👁</button></span><span class="hint" id="pwHint">Минимум 8 символов, буквы и цифры</span></label>
+        <button class="btn primary big" id="regBtn">Зарегистрироваться</button>
+        <p class="form-err" id="regErr" role="alert"></p>
+      </form>
+      <div id="pendingBox" class="stack" hidden style="text-align:center">
+        <div class="pending-icon" aria-hidden="true">✓</div>
+        <h1 class="auth-h">Заявка отправлена</h1>
+        <p class="muted" style="margin:0" id="pendingText">Администратор получит вашу заявку. Как только он её подтвердит, войдите с этим email и паролем.</p>
+        <button class="btn" type="button" id="backToLogin">Ко входу</button>
+      </div>
+    </div>
+    <p class="small muted" style="text-align:center;margin-top:16px"><a href="services.html">Цены и примеры работ</a></p>
+    <p class="small muted" id="modeNote" style="text-align:center"></p>
+  </div>
+</main>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://*.supabase.co wss://*.supabase.co https://nominatim.openstreetmap.org https://overpass-api.de https://overpass.kumi.systems https://maps.mail.ru https://generativelanguage.googleapis.com https://api.groq.com https://openrouter.ai https://api.cerebras.ai; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Поиск лидов — LeadFlow</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css?v=26">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js" integrity="sha384-GFr3yTh5lJznCbZfpTtXnwboFsxqtTQoeTZCRHhE0579KrRmlCzen5AA8ohaB5ug" crossorigin="anonymous"></script>
+<script src="data/config.js?v=26"></script>
+<script src="data/site.js?v=26"></script>
+<script src="assets/core.js?v=26"></script>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%231e6b50'/><text x='16' y='21' font-size='13' font-family='Arial' font-weight='700' fill='white' text-anchor='middle'>LF</text></svg>">
+</head>
+<body data-auth="member" data-page="leads">
+<main class="wrap page">
+  <div class="page-head"><div><h1>Поиск лидов</h1><p class="muted">Компании берутся из открытой карты OpenStreetMap. Выберите нишу и город — лучшие лиды окажутся сверху.</p></div></div>
+  <div class="layout-2">
+    <div class="stack">
+      <form id="searchForm" class="card stack">
+        <label>Ниша<select id="cat"></select></label>
+        <label>Страна<select id="country"></select></label>
+        <div class="stack city-picker" style="gap:8px">
+          <label for="cityAdd">Города <span class="small" style="font-weight:500">(можно несколько, до 5)</span></label>
+          <div class="city-chips" id="cityChips" aria-live="polite"></div>
+          <div class="row gap"><input id="cityAdd" list="cityList" placeholder="Начните вводить город" autocomplete="off" class="grow"><button type="button" class="btn" id="cityAddBtn">Добавить</button></div>
+          <datalist id="cityList"></datalist>
+          <div class="city-quick" id="cityQuick"></div>
+        </div>
+        <label>Слово в названии <span class="small" style="font-weight:500">(необязательно)</span><input id="nameFilter" placeholder="например, coffee"></label>
+        <label>Сколько показать<select id="limit"><option>20</option><option selected>50</option><option>100</option><option>200</option></select></label>
+        <label class="check"><input type="checkbox" id="onlyContacts" checked> Только с контактами</label>
+        <button class="btn primary" type="submit" id="searchBtn">Найти компании</button>
+      </form>
+      <section class="card stack" id="historyBox"><h3 style="margin:0">Недавние поиски команды</h3><div id="history" class="history-list small muted">Загружаю…</div></section>
+      <details class="card"><summary>Добавить вручную</summary>
+        <form id="manualForm" class="stack">
+          <label>Название<input name="name" required></label>
+          <label>Телефон<input name="phone" type="tel" placeholder="+7 700 123 45 67"></label>
+          <label>Email<input name="email" type="email"></label>
+          <label>Сайт или Instagram<input name="website"></label>
+          <button class="btn" type="submit">Добавить в CRM</button>
+        </form>
+      </details>
+      <details class="card"><summary>Импорт из CSV</summary>
+        <p class="small muted">Колонки: name/название, phone/телефон, email, website/сайт, city/город, address/адрес. Подойдёт выгрузка из Excel или Google Таблиц.</p>
+        <input type="file" id="csv" accept=".csv,text/csv">
+      </details>
+    </div>
+    <section class="card">
+      <div class="row gap wrap-row" style="justify-content:space-between;margin-bottom:14px">
+        <div><h3 id="resTitle" style="margin:0">Результаты</h3><div class="small muted" id="resSub">Здесь появятся найденные компании</div></div>
+        <button id="addSel" class="btn primary" disabled>Добавить в CRM</button>
+      </div>
+      <div id="results"><div class="empty"><h3>Пока пусто</h3><p>Выберите нишу и город слева и нажмите «Найти компании».</p></div></div>
+    </section>
+  </div>
+</main>
+</body>
+</html>

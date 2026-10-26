@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://*.supabase.co wss://*.supabase.co https://nominatim.openstreetmap.org https://overpass-api.de https://overpass.kumi.systems https://maps.mail.ru https://generativelanguage.googleapis.com https://api.groq.com https://openrouter.ai https://api.cerebras.ai; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CRM — LeadFlow</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css?v=26">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js" integrity="sha384-GFr3yTh5lJznCbZfpTtXnwboFsxqtTQoeTZCRHhE0579KrRmlCzen5AA8ohaB5ug" crossorigin="anonymous"></script>
+<script src="data/config.js?v=26"></script>
+<script src="data/site.js?v=26"></script>
+<script src="assets/core.js?v=26"></script>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%231e6b50'/><text x='16' y='21' font-size='13' font-family='Arial' font-weight='700' fill='white' text-anchor='middle'>LF</text></svg>">
+</head>
+<body data-auth="member" data-page="crm">
+<main class="wrap page">
+  <div class="page-head">
+    <div><h1>CRM</h1><p class="muted">Перетаскивайте карточки между этапами. Нажмите на лида, чтобы написать ему, оставить заметку или поставить напоминание.</p></div>
+    <div class="row gap wrap-row">
+      <select id="who" style="width:auto" aria-label="Чьи лиды"><option value="all">Все лиды</option><option value="mine">Мои</option><option value="free">Свободные</option></select>
+      <input id="q" type="search" placeholder="Поиск по названию, телефону…" style="width:240px" aria-label="Поиск по лидам">
+      <div class="seg" role="tablist"><button data-view="board" class="on">Доска</button><button data-view="table">Таблица</button></div>
+      <button id="exportCsv" class="btn">Экспорт CSV</button>
+    </div>
+  </div>
+  <div id="stats" class="stats"></div>
+  <div id="due"></div>
+  <div id="board" class="kanban"></div>
+  <div id="table" hidden></div>
+</main>
+</body>
+</html>

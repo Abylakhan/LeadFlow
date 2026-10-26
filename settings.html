@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://*.supabase.co wss://*.supabase.co https://nominatim.openstreetmap.org https://overpass-api.de https://overpass.kumi.systems https://maps.mail.ru https://generativelanguage.googleapis.com https://api.groq.com https://openrouter.ai https://api.cerebras.ai; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Мой профиль — LeadFlow</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css?v=26">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js" integrity="sha384-GFr3yTh5lJznCbZfpTtXnwboFsxqtTQoeTZCRHhE0579KrRmlCzen5AA8ohaB5ug" crossorigin="anonymous"></script>
+<script src="data/config.js?v=26"></script>
+<script src="data/site.js?v=26"></script>
+<script src="assets/core.js?v=26"></script>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%231e6b50'/><text x='16' y='21' font-size='13' font-family='Arial' font-weight='700' fill='white' text-anchor='middle'>LF</text></svg>">
+</head>
+<body data-auth="member" data-page="settings">
+<main class="wrap page" style="max-width:820px">
+  <div class="page-head"><div><h1>Мой профиль</h1><p class="muted" id="who"></p></div></div>
+  <section class="card stack">
+    <h3 style="margin:0">Мои настройки</h3>
+    <div class="row gap wrap-row">
+      <label class="grow">Мой город для поиска<input id="pCity" placeholder="по умолчанию — город команды"></label>
+      <label class="grow">Язык сообщений по умолчанию<select id="pLang"><option value="ru">Русский</option><option value="kk">Қазақша</option><option value="uz">Oʻzbekcha</option><option value="ky">Кыргызча</option></select></label>
+      <label class="grow">Тон моих сообщений<select id="pTone"><option>дружелюбный и деловой</option><option>строго деловой</option><option>простой, как другу</option><option>экспертный, с цифрами</option></select></label>
+    </div>
+    <div><button class="btn primary" id="pSave">Сохранить</button></div>
+  </section>
+  <form class="card stack" id="pwForm" style="margin-top:20px">
+    <h3 style="margin:0">Сменить пароль</h3>
+    <label>Текущий пароль<input type="password" id="pwOld" required autocomplete="current-password"></label>
+    <div class="row gap wrap-row"><label class="grow">Новый пароль<input type="password" id="pwNew" required minlength="8" autocomplete="new-password"></label><label class="grow">Ещё раз<input type="password" id="pwNew2" required minlength="8" autocomplete="new-password"></label></div>
+    <div><button class="btn" id="pwBtn">Сменить пароль</button></div>
+  </form>
+  <section class="card stack" style="margin-top:20px">
+    <h3 style="margin:0">Данные</h3>
+    <div class="row gap wrap-row"><button class="btn" id="expMine">Скачать моих лидов (CSV)</button><button class="btn" id="expAll">Скачать всю базу (CSV)</button></div>
+    <p class="small muted" style="margin:0" id="dataInfo"></p>
+  </section>
+  <section class="card stack" style="margin-top:20px">
+    <h3 style="margin:0">Как работать</h3>
+    <ol class="small" style="margin:0;padding-left:18px;line-height:1.8">
+      <li>«Поиск» → выберите нишу и город → добавьте компании в CRM.</li>
+      <li>«Рассылка» → по очереди отправьте сообщения. Лид, которому вы написали, закрепляется за вами — коллеги его не тронут.</li>
+      <li>Когда клиент ответил, переведите его в «Ответил» и договоритесь о созвоне.</li>
+      <li>Каждое утро открывайте «Сегодня»: там ответы, напоминания и цель на день.</li>
+    </ol>
+  </section>
+</main>
+</body>
+</html>
