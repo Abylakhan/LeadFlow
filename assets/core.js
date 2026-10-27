@@ -1051,7 +1051,7 @@ function openLead(id, onChange = () => {}) {
       <details><summary>Изменить контакты</summary><div class="stack">${['phone:Телефон', 'whatsapp:WhatsApp', 'email:Email', 'telegram:Telegram', 'instagram:Instagram', 'website:Сайт'].map(x => { const [k, t] = x.split(':'); return `<label>${t}<input data-c="${k}" value="${esc(l[k] || '')}"></label>`; }).join('')}<button class="btn" id="dSaveC">Сохранить контакты</button></div></details>
       <label>Заметки<textarea id="dNotes" rows="3" placeholder="Кто принимает решение, что обсуждали, возражения…">${esc(l.notes)}</textarea></label>
       <div class="msg-box stack">
-        <div class="row gap wrap-row"><h3 class="grow" style="margin:0">Сообщение</h3><select id="dCh" style="width:auto" aria-label="Канал">${chOpts}</select><select id="dLang" style="width:auto" aria-label="Язык">${langOpts(l)}</select><button class="btn" id="dGen">Написать с ИИ</button></div>
+        <div class="row gap wrap-row"><h3 style="margin:0;flex:1 1 100%">Сообщение</h3><select id="dCh" style="width:auto" aria-label="Канал">${chOpts}</select><select id="dLang" style="width:auto" aria-label="Язык">${langOpts(l)}</select><button class="btn" id="dGen">Написать с ИИ</button></div>
         <textarea id="dMsg" rows="7" placeholder="Нажмите «Написать с ИИ» или введите текст сами">${esc(l.draft || '')}</textarea>
         <div class="row gap wrap-row"><button class="btn primary" id="dSend">Отправить</button><button class="btn" id="dCopy">Скопировать</button>${l.phone ? `<a class="btn" href="tel:+${leadPhone(l)}" id="dCall">Позвонить</a>` : ''}<span class="muted small" id="dSrc"></span></div>
       </div>
@@ -1120,7 +1120,7 @@ function openLead(id, onChange = () => {}) {
 }
 
 /* ---------- Запуск страницы: проверка входа → загрузка данных → скрипт страницы ---------- */
-const VER = '26';
+const VER = '27';
 async function boot() {
   const body = document.body; const need = body.dataset.auth || 'member'; const page = body.dataset.page;
   let cached = null;
